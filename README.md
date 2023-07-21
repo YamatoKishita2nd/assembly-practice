@@ -1,7 +1,7 @@
 # assembly-practice
 
-* change.asm.txt
-- GR1にセットした値とGR2にセットした値を交換するプログラム
+# change.asm.txt
+GR1にセットした値とGR2にセットした値を交換するプログラム
 
 * div.asm.txt
 - （GR1にセットした値）÷（GR2にセットした値）を計算するプログラム
