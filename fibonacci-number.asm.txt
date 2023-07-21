@@ -1,0 +1,14 @@
+FIBO START
+    LAD  GR1, 5
+    LAD  GR2, 0
+    LAD  GR3, 1
+    LD   GR1, GR1
+    JZE  R
+L1  XOR  GR2, GR3
+    XOR  GR3, GR2
+    XOR  GR2, GR3
+    ADDA GR3, GR2
+    SUBA GR1, =1
+    JNZ  L1
+R   RET
+    END

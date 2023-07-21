@@ -1,0 +1,20 @@
+DIV START
+    LAD  GR1, 23
+    LAD  GR2, 4
+    LAD  GR3, 0
+    LAD  GR4, 0
+    CPL  GR1, GR2
+    JMI  L3
+L1  SUBA GR1, GR2
+    ADDA GR3, =1
+    CPL  GR1, GR2
+    JPL  L1
+    JZE  L2
+    LD   GR4, GR1
+    JUMP R
+L2  ADDA GR3, =1
+    LD   GR4, =0
+R   RET
+L3  LD   GR4, GR1
+    RET
+    END

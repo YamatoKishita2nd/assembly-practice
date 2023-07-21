@@ -1,0 +1,20 @@
+GETMAX  START
+        LAD    GR1, #0     ;最大値を格納する場所
+        LAD    GR2, DATA   ;DATAのアドレス
+        LD     GR3, 0, GR2  ;DATAの要素を格納していく場所
+        LAD    GR4, #5
+
+LOOP    SUBA   GR4, =1
+        JZE    FIN
+        LAD    GR2, 1, GR2  ;次のアドレス
+        LD     GR3, 0, GR2  ;数値を取り出す
+        CPL    GR1, GR3    ;現状の最大値とDATAの要素を比較
+        JMI    UPDATE
+        JUMP   LOOP
+
+UPDATE  LD     GR1, GR3
+        JUMP   LOOP
+
+FIN     RET
+DATA    DC     #10, #14, #7, #30, #22
+        END

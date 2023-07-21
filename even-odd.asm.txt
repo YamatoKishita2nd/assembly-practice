@@ -1,0 +1,11 @@
+EORO START
+    LAD  GR0, #FFFE
+    LAD  GR1, 14
+    LAD  GR2, 1
+    OR   GR0, GR1
+    SUBL GR0, =#FFFE
+    LD   GR0, GR0
+    JZE  R
+    LAD  GR2, 0
+R   RET
+    END

@@ -1,0 +1,32 @@
+SORT     START
+         LAD     GR1,0
+
+SETTING  LD      GR0,PDATA,GR1 ;ソートせずにセット
+         ST      GR0,RDATA,GR1
+         ADDA    GR1,=1
+         CPA     GR1,=5
+         JMI     SETTING
+         LAD     GR0,5
+
+TIME     SUBA    GR0,=1
+         CPL     GR0,=0
+         JZE     FIN
+         LAD     GR1,0
+
+CHANGE   LD      GR2,RDATA,GR1
+         LAD     GR3,1,GR1
+         LD      GR4,RDATA,GR3
+         CPL     GR2,GR4
+         JMI     NOCHANGE
+         ST      GR2,RDATA,GR3
+         ST      GR4,RDATA,GR1
+
+NOCHANGE ADDA    GR1,=1
+         CPA     GR1,GR0
+         JMI     CHANGE
+         JUMP    TIME
+
+FIN      RET
+RDATA    DS      5
+PDATA    DC      #10, #14, #7, #30, #22
+         END

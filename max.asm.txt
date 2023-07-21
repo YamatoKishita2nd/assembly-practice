@@ -1,0 +1,10 @@
+MAX START
+        LAD  GR1, #15
+        LAD  GR2, #5
+        CPL  GR1, GR2
+        JPL  L1
+        LD   GR3, GR2
+        RET
+L1   LD   GR3, GR1
+        RET
+        END
