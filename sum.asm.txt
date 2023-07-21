@@ -1,0 +1,14 @@
+SUM     START
+        LAD GR1, 0
+        LAD GR2, 0
+        LAD GR3, 0
+
+LOOP    LD   GR3, DATA, GR2
+        JZE  FIN
+        ADDA GR1, GR3
+        ADDA GR2, =1
+        JUMP LOOP
+
+FIN     RET
+DATA    DC  #10, #14, #7, #30, #22, #0
+        END
